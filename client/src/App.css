@@ -1,0 +1,146 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+body {
+  background-color: #121212;
+  color: #ffffff;
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.game {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.game-board {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.status {
+  margin-bottom: 20px;
+  font-size: 2rem;
+  font-weight: 600;
+  text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 30px #00ffff;
+}
+
+.board-row {
+  display: flex;
+}
+
+.square {
+  width: 100px;
+  height: 100px;
+  background: #1e1e1e;
+  border: 2px solid #00ffff;
+  margin: 2px;
+  font-size: 4rem;
+  font-weight: 600;
+  color: #ffffff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff inset;
+}
+
+.square:hover {
+  background: #2e2e2e;
+  box-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff inset;
+}
+
+.square:focus {
+  outline: none;
+}
+
+.restart-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #121212;
+  background-color: #00ffff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px #00ffff;
+}
+
+.restart-button:hover {
+  background-color: #ffffff;
+  color: #00ffff;
+  box-shadow: 0 0 20px #00ffff;
+}
+
+.game-mode-selection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.game-mode-selection h1 {
+  font-size: 2.5rem;
+  color: #00ffff;
+  margin-bottom: 30px;
+  text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff;
+}
+
+.game-mode-selection button {
+  margin: 10px;
+  padding: 15px 30px;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #121212;
+  background-color: #00ffff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 15px #00ffff;
+}
+
+.game-mode-selection button:hover {
+  background-color: #ffffff;
+  color: #00ffff;
+  box-shadow: 0 0 25px #00ffff;
+}
+
+.change-mode-button {
+  margin-top: 10px;
+  padding: 8px 15px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #00ffff;
+  background-color: transparent;
+  border: 2px solid #00ffff;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.change-mode-button:hover {
+  background-color: #00ffff;
+  color: #121212;
+  box-shadow: 0 0 10px #00ffff;
+}
+
+.square.X {
+  color: #ff00ff;
+  text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff;
+}
+
+.square.O {
+  color: #00ff00;
+  text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00;
+}
