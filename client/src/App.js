@@ -1,10 +1,20 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import './App.css';
 
 const App = () => {
   const [board, setBoard] = useState(Array(9).fill(null));
   const [xIsNext, setXIsNext] = useState(true);
   const [gameMode, setGameMode] = useState(null); // 'human' or 'ai'
+
+  const handleClick = useCallback((i) => {
+    const newBoard = [...board];
+    if (calculateWinner(newBoard) || newBoard[i]) {
+      return;
+    }
+    newBoard[i] = xIsNext ? 'X' : 'O';
+    setBoard(newBoard);
+    setXIsNext(!xIsNext);
+  }, [board, xIsNext]); // Dependencies for handleClick
 
   useEffect(() => {
     if (gameMode === 'ai' && !xIsNext && !calculateWinner(board) && board.includes(null)) {
@@ -13,17 +23,7 @@ const App = () => {
         setTimeout(() => handleClick(aiMove), 500); // Delay AI move for better UX
       }
     }
-  }, [board, xIsNext, gameMode]);
-
-  const handleClick = (i) => {
-    const newBoard = [...board];
-    if (calculateWinner(newBoard) || newBoard[i]) {
-      return;
-    }
-    newBoard[i] = xIsNext ? 'X' : 'O';
-    setBoard(newBoard);
-    setXIsNext(!xIsNext);
-  };
+  }, [board, xIsNext, gameMode, handleClick]); // Added handleClick to dependencies
 
   const getAIMove = (currentBoard) => {
     const availableMoves = currentBoard.map((val, idx) => val === null ? idx : null).filter(val => val !== null);
